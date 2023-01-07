@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-extensions@4.0.1/bulma-slider/dist/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-extensions@4.0.1/bulma-pageloader/dist/css/bulma-pageloader.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-extensions@4.0.1/bulma-badge/dist/css/bulma-badge.min.css">
+    <title>WebAssembly Demo</title>
+    <script type="module">
+        import {
+            PageObject,
+            WasmApp
+        } from './js/app.js';
+
+
+        var app = new WasmApp(new PageObject());
+        app.initialiseApp();
+    </script>
+</head>
+<body>
+    <section class="hero is-medium has-background-white-ter">
+        <div class="hero-body">
+            <p class="title is-1">Image Manipulation</p>
+            <p class="subtitle is-3">Using AssemblyScript</p>
+        </div>
+    </section>
+    <div class="tile" id="canvases"></div>
+    <section class="hero is-medium">
+        <div class="hero-body">
+            <p class="title is-1">See it in action</p>
+        <p class="subtitle is-3">Move the sliders</p>
+        </div>
+    </section>
+    <div class="tile">
+        <div class="tile is-6 is-clipped">
+            <canvas id="original"></canvas>
+        </div>
+        <div class="tile is-4 columns">
+            <div class="column mt-6 ml-6 mr-6 pl-6 pt-6 pr-6 pb-6 box">
+                <div class="field">
+                    <label class="label">Red Channel Adjustment</label>
+                    <div class="control">
+                        <input class="slider has-output is-fullwidth" step="0.01" min="0" max="1.0" value="1.0" type="range" x-id="redAdjustment">
+                        <output for="redAdjustment">1</output>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Green Channel Adjustment</label>
+                    <div class="control">
+                        <input class="slider has-output is-fullwidth" step="0.01" min="0" max="1.0" value="1.0" type="range" x-id="greenAdjustment">
+                        <output for="greenAdjustment">1</output>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Blue Channel Adjustment</label>
+                    <div class="control">
+                        <input class="slider has-output is-fullwidth" step="0.01" min="0" max="1.0" value="1.0" type="range" x-id="blueAdjustment">
+                        <output for="blueAdjustment">1</output>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Alpha Channel Adjustment</label>
+                    <div class="control">
+                        <input class="slider has-output is-fullwidth" step="0.01" min="0" max="1.0" value="0" type="range" x-id="alphaAdjustment">
+                        <output for="alphaAdjustment">0</output>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="hero is-medium has-background-white-ter">
+        <div class="hero-body level">
+            <div class="level-left">
+                <div>
+                    <p class="title is-1">Save the result</p>
+                    <p class="subtitle is-3">Click on the button</p>
+                </div>
+            </div>
+            <div class="level-right">
+                <a class="button is-primary is-large" download="image.png" id="download">Download image</a>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Image Manipulation</strong> by Eki Baskoro.
+            </p>
+        </div>
+        <div class="content has-text-centered">
+            <a title="AssemblyScript" href="https://www.assemblyscript.org" class="ml-3 mr-3">
+                <img width="48" alt="AssemblyScript" src="https://www.assemblyscript.org/images/icon.svg">
+            </a>
+            <a title="Carlos Baraza, CC0, via Wikimedia Commons" href="https://webassembly.org" class="ml-3 mr-3">
+                <img width="48" alt="WebAssembly Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/WebAssembly_Logo.svg/64px-WebAssembly_Logo.svg.png">
+            </a>
+            <a href="https://bulma.io" class="ml-3 mr-3">
+                <img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="256" height="48">
+            </a>
+        </div>
+    </footer>
+    <div class="pageloader is-active" id="loader">
+        <span class="title">Loading application</span>
+    </div>
+</body>
+</html>

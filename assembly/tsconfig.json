@@ -1,0 +1,6 @@
+{
+  "extends": "../../../usr/local/share/nvm/versions/node/v16.19.0/lib/node_modules/assemblyscript/std/assembly.json",
+  "include": [
+    "./**/*.ts"
+  ]
+}

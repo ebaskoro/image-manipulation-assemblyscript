@@ -1,0 +1,7 @@
+{
+    "name": "AssemblyScript",
+    "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
+    "features": {
+        "ghcr.io/devcontainers-contrib/features/assemblyscript:2": {}
+    }
+}

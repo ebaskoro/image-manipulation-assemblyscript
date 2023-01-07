@@ -1,0 +1,7 @@
+root = true
+
+[*]
+indent_style = space
+
+[*.ts]
+indent_size = 4
